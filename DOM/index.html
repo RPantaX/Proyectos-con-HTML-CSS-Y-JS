@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo DOM con JavaScript</title>
+    <style>
+        .azul{
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 id="cabecero">Ejemplo DOM con JavaScript</h1>
+    <p id="parrafo1">Saludos!</p>
+    <p id="parrafo2">Otro párrafo</p>
+    <p class='azul'>Saludos azul!</p>
+    <p class='azul'>Otro párrafo azul</p>
+    <script>
+        //acceder a objetos con id: getElementbyId()
+        //acceder a etiquetas específicas
+        let parrafos = document.getElementsByTagName('p');
+        console.log(`No. párrados: ${parrafos.length}`);
+        for(let i=0; i<parrafos.length; i++){
+            console.log(`${i} - ${parrafos[i].innerHTML}`);
+        }
+        //acceder a etiquetas con class
+        let blueparrafos=document.getElementsByClassName('azul');
+        console.log(`No. párrados: ${blueparrafos.length}`);
+        for(let blu of blueparrafos){
+            console.log(`${blu.innerHTML}`);
+        }
+        //podemos acceder también a elementos especificos de la etiqueta p con la clase azul
+        let pazul=document.querySelectorAll('p.azul');
+        console.log(`Solo p.azul: ${pazul.length}`);
+        for(let blu of pazul){
+            console.log(`${blu.innerHTML}`);
+        }
+    </script>
+</body>
+</html>
